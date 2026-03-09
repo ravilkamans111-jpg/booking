@@ -32,7 +32,6 @@ HIGH_OCCUPANCY_MULTIPLIER = 1.2
 
 
 class PriceChanger(BaseService):
-
     def _get_mult_by_occupancy(self, days_of_booking: int, price: int) -> int:
         if days_of_booking >= LONG_STAY_THRESHOLD_DAYS:
             return price
@@ -74,7 +73,9 @@ class PriceChanger(BaseService):
 
         bookings_count = len(bookings)
         days_of_booking = (date_to - date_from).days
-        price_by_occupancy = self._get_mult_by_occupancy(days_of_booking, base_room_price)
+        price_by_occupancy = self._get_mult_by_occupancy(
+            days_of_booking, base_room_price
+        )
 
         daily_prices: list[int] = []
         current_date = date_from
@@ -87,10 +88,6 @@ class PriceChanger(BaseService):
             current_date += timedelta(days=1)
 
         return sum(daily_prices)
-
-
-
-
 
 
 #
