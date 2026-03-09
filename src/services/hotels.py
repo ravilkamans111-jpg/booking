@@ -28,4 +28,3 @@ class HotelService(BaseService):
 
     async def get_favourites_hotels_by_id(self, user_id: int):
         return await self.db.favourites.get_filtered(user_id=user_id)
-

@@ -58,8 +58,8 @@ app = FastAPI(title="New Booking", lifespan=lifespan)
 
 Instrumentator().instrument(app).expose(app)
 
-app_info = Info('fastapi_app', 'FastAPI application info')
-app_info.info({'app_name': 'myapp'})
+app_info = Info("fastapi_app", "FastAPI application info")
+app_info.info({"app_name": "myapp"})
 
 admin = Admin(app=app, engine=engine)
 admin.add_view(UserAdmin)

@@ -52,5 +52,6 @@ class EmailSender:
             recipient=user_email,
         )
 
+
 async def get_random_code_for_verify_email():
     return random.choice(range(1000, 9999))

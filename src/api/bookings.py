@@ -25,9 +25,7 @@ async def get_all_bookings(db: DBDep):
 )
 async def create_booking(db: DBDep, booking: BookingAdd, user_id: UserIdDep):
     try:
-        return await BookingsService(db).create_booking(
-            booking=booking
-        )
+        return await BookingsService(db).create_booking(booking=booking)
 
     except RoomAlreadyBooked:
         raise HTTPException(status_code=409, detail="Нельзя забронировать эти даты")
