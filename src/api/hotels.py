@@ -74,7 +74,7 @@ async def get_sorted_hotels(
 )
 @cache(expire=60)
 async def get_hotels_by_api(
-    user_id: UserIdDep,
+    # user_id: UserIdDep,
     session: HotelsSessionDep,
     db: DBDep,
     city: str,
